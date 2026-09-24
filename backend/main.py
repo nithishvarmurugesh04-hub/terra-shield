@@ -12,6 +12,8 @@ app = FastAPI(
     description="AI-powered landslide risk monitoring system",
     version="0.1.0",
 )
+app.include_router(reports.router, prefix="/api/v1")
+app.include_router(gis.router, prefix="/api/v1")
 
 app.add_middleware(
     CORSMiddleware,
